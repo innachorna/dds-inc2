@@ -12,4 +12,4 @@ FROM openjdk:17-jdk-slim
 COPY --from=build /target/2023-tpa-sama-grupo-4-1.0-SNAPSHOT-jar-with-dependencies.jar tpa.jar
 # ENV PORT=8080
 EXPOSE 8080
-ENTRYPOINT ["java","-classpath","tpa.jar","ar.utn.dds.tpa.monitoreo.MonitoreoApp"]
+ENTRYPOINT ["java","-classpath","tpa.jar","ar.utn.dds.tpa.monitoreo.TelegramBot"]
