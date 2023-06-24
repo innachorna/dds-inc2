@@ -7,69 +7,145 @@
     <groupId>ar.utn.dds.tpa</groupId>
     <artifactId>2023-tpa-sama-grupo-4</artifactId>
     <version>1.0-SNAPSHOT</version>
-    
+
+
     <!-- Todo lo que esta de aquí en adelante hay que agregarlo   -->
     <properties>
         <maven.compiler.target>8</maven.compiler.target>
         <maven.compiler.source>8</maven.compiler.source>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    
+
     <dependencies>
         <dependency>
-        
+
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>5.9.2</version>
             <scope>test</scope>
         </dependency>
-        
+
         <!-- Para el cálculo de la distancia de Levenshtein   -->
         <dependency>
-            <groupId>org.apache.commons</groupId>
+            <groupId>
+                org.apache.commons</groupId>
             <artifactId>commons-text</artifactId>
             <version>1.10.0</version>
         </dependency>
-        
+
         <!-- bot de telegram -->
         <dependency>
-            <groupId>org.telegram</groupId>
+            <groupId>
+                org.telegram</groupId>
             <artifactId>telegrambots</artifactId>
             <version>6.5.0</version>
         </dependency>
-        
+
+        <!-- API -->
+        <dependency>
+            <groupId>
+                io.javalin</groupId>
+            <artifactId>javalin</artifactId>
+            <version>5.4.2</version>
+        </dependency>
+        <dependency>
+            <groupId>
+                org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>2.0.6</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-jsr310 -->
+        <dependency>
+            <groupId>
+                com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+            <version>
+                2.15.2</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.github.dpaukov/combinatoricslib3 -->
+        <dependency>
+            <groupId>com.github.dpaukov</groupId>
+            <artifactId>
+                combinatoricslib3</artifactId>
+            <version>3.3.3</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>
+                org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.13</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>
+                com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>testing</scope>
+            <version>2.1.214</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+        <dependency>
+            <groupId>
+                org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.6.0</version>
+        </dependency>
+        <dependency>
+            <groupId>
+                org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>
+                5.6.15.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.6.15.Final</version>
+        </dependency>
+
+
     </dependencies>
-    
-    
-    	<build>
-		<plugins>
-		
-			<plugin>
-				<artifactId>maven-failsafe-plugin</artifactId>
-					<version>2.22.0</version>
-					
-						<executions>
-							<execution>
-								<goals>
-									<goal>integration-test</goal>
-									<goal>verify</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
+
+
+    <build>
+        <plugins>
+
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.3.0</version>
+                <executions>
+                    <execution>
+                        <id>create-jar-with-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>
+                                single</goal>
+                        </goals>
+                        <configuration>
+                            <descriptorRefs>
+                                <descriptorRef>
+                                    jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
 
         </plugins>
-			</build>
+    </build>
 
-    
-    
-    
+
+
 </project>
